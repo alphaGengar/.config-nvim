@@ -18,7 +18,7 @@ M.general = {
 
   n = {
     -- dismoss notifications
-    ["<leader>d"] = { ":lua require('notify').dismiss()<CR>", "Dismiss Notifications" },
+    ["<leader>dn"] = { ":lua require('notify').dismiss()<CR>", "Dismiss Notifications" },
 
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
