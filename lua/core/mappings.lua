@@ -18,7 +18,7 @@ M.general = {
 
   n = {
     -- dismoss notifications
-    ["<leader>d"] = { ":lua require('notify').dismiss()<CR>", "Dismiss Notifications" },
+    ["<leader>dn"] = { ":lua require('notify').dismiss()<CR>", "Dismiss Notifications" },
 
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
@@ -476,30 +476,21 @@ M.gitsigns = {
   },
 }
 
-M.CP = {
+M.dap = {
   n = {
-    -- competist.nvim
-    ["<leader>cta"] = {":CompetiTest add_testcase<Space><CR>", "Add Testcase"},
-    ["<leader>cte"] = {":CompetiTest edit_testcase<Space><CR>", "Edit Testcase"},
-    ["<leader>ctr"] = {":CompetiTest run<Space><CR>", "Run Testcases"},
+    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint"}
+  },
+}
 
-    ["<leader>ctc"] = {":CompetiTest receive contest<Space><CR>", "Recieve Contest"},
-    ["<leader>ctp"] = {":CompetiTest receive problem<Space><CR>", "Recieve Problem"},
-    ["<leader>ctg"] = {":CompetiTest receive testcases<Space><CR>", "Recieve Testcases"},
-
-    -- copy file name
-    ["<leader>cf"] = {":lua CopyCurrentFileName<CR>", "Copy File Name"},
-
-    -- switch tabprevious
-    ["<C-Right>"] = {":tabnext<CR>", "Next Tab"},
-    ["<C-Left>"] = {":tabprevious<CR>", "Previous Tab"},
-
-    -- running files
-    ["li"] = {":vs %:r.in<CR>", "Add Testcase File"},
-    ["lc"] = {":vectical close<CR>", "Close Testcase File"},
-    ["lr"] = {":w<CR>:make<CR>:!./%:r < %:r.in<CR>", "Run Testcase File"},
-    ["lt"] = {":w<CR> :make<CR> :!time ./%:r < %:r.in <CR>", "Time Testcase File"},
-  }
+M.dap_python = {
+  n = {
+    ["<leader>dpr"] = {
+      function()
+        require('dap-python').test_method()
+      end,
+      "Run with debugger"
+    }
+  },
 }
 
 return M

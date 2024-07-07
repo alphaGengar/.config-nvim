@@ -1,4 +1,13 @@
 local lazy_plugins = {
+  -- Presence
+  {
+    "jiriks74/presence.nvim",
+    event = "UIEnter",
+  },
+  -- nvim neo
+  {
+    "nvim-neotest/nvim-nio",
+  },
   {
     -- Leap  
     "ggandor/leap.nvim",
@@ -56,7 +65,7 @@ local lazy_plugins = {
   -- null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
+    ft = {"python"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -67,22 +76,15 @@ local lazy_plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "clangd",
-        "clang-format",
-        "codelldb",
+        "black",
+        "debugpy",
+        "mypy",
+        "ruff",
+        "pyright",
       }
     }
   },
 
-  -- Competitest (for C++)
-  {
-    "xeluxee/competitest.nvim",
-    requires = "MunifTanjim/nui.nvim",
-    lazy = false,
-    opts = function()
-      return require "custom.configs.competitest"
-    end,
-  },
   -- LSP
   {
     lazy = false,
@@ -92,54 +94,14 @@ local lazy_plugins = {
       require "custom.configs.lspconfig"
     end,
   },
-  -- Presence
+  -- null-ls
   {
-    "jiriks74/presence.nvim",
-    event = "UIEnter",
+    "nvimtools/none-ls.nvim",
+    ft = {"python"},
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
   },
-  -- debugger UI
-  --[[
-  {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end
-  },
-
-  -- debugger again?
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    opts = {
-      handlers = {}
-    },
-  },
-
-  -- debugger
-  {
-    "mfussenegger/nvim-dap",
-    config = function(_, _)
-      require("core.utils").load_mappings("dap")
-    end
-  },
-]]
 }
 
 return lazy_plugins

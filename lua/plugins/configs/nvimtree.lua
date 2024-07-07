@@ -1,7 +1,5 @@
 local options = {
   filters = {
-    dotfiles = false,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
     enable = true,
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom"},
@@ -23,7 +21,6 @@ local options = {
   sync_root_with_cwd = true,
   update_focused_file = {
     enable = true,
-    update_root = false,
     update_root = true,
   },
   view = {
