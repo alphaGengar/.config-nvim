@@ -4,7 +4,7 @@ local M = {}
 M.ui = {
   theme_toggle = {"gruvchad", "catppuccin"},
   theme = "gruvchad",
-  transparency = false,
+  transparency = true,
 }
 M.plugins = "custom.plugins"
 
