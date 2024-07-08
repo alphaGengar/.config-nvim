@@ -14,7 +14,7 @@ local lazy_plugins = {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      arg = "leetcode",
+      arg = "leetcode.nvim",
       lang = "cpp",
       keys = {
         toggle = { "q" }, ---@type string|string[]
