@@ -1,4 +1,38 @@
 local lazy_plugins = {
+  -- leetcode
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim", -- required by telescope
+        "MunifTanjim/nui.nvim",
+
+        -- optional
+        "nvim-treesitter/nvim-treesitter",
+        "rcarriga/nvim-notify",
+        "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      arg = "leetcode",
+      lang = "cpp",
+      keys = {
+        toggle = { "q" }, ---@type string|string[]
+        confirm = { "<CR>" }, ---@type string|string[]
+
+        reset_testcases = "r", ---@type string
+        use_testcase = "U", ---@type string
+        focus_testcases = "H", ---@type string
+        focus_result = "L", ---@type string
+      },
+      injector = {
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "using namespace std;", "#define ll long long", "#define all(x) x.begin(), x.end()"},
+          after = "int main() {}",
+        },
+      }
+    },
+  },
   -- Presence
   {
     "jiriks74/presence.nvim",
