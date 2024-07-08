@@ -15,8 +15,8 @@ local lazy_plugins = {
     "jiriks74/presence.nvim",
     event = "UIEnter",
   },
+  --lleap
   {
-    -- Leap  
     "ggandor/leap.nvim",
     enabled = true,
     keys = {
@@ -43,7 +43,7 @@ local lazy_plugins = {
   },
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = {"VeryLazy", "CmdlineEnter"},
 
     opts = {
       lsp = {
@@ -93,14 +93,14 @@ local lazy_plugins = {
   {
     "xeluxee/competitest.nvim",
     requires = "MunifTanjim/nui.nvim",
-    lazy = false,
+    ft = 'cpp',
     opts = function()
       return require "custom.configs.competitest"
     end,
   },
   -- LSP
   {
-    lazy = false,
+    lazy = true,
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
