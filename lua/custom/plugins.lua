@@ -2,6 +2,7 @@ local lazy_plugins = {
   -- leetcode
   {
     "kawre/leetcode.nvim",
+    cmd = "Leet",
     build = ":TSUpdate html",
     dependencies = {
         "nvim-telescope/telescope.nvim",
@@ -58,6 +59,7 @@ local lazy_plugins = {
     end,
   },
   -- command line middle! + notify
+  --[[
   {
     "rcarriga/nvim-notify",
     opts = {
@@ -92,6 +94,7 @@ local lazy_plugins = {
       "rcarriga/nvim-notify",
     }
   },
+  ]]
   -- null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
