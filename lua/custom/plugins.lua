@@ -59,7 +59,7 @@ local lazy_plugins = {
     end,
   },
   -- command line middle! + notify
-  --[[
+  -- [[
   {
     "rcarriga/nvim-notify",
     opts = {
@@ -69,7 +69,6 @@ local lazy_plugins = {
   {
     "folke/noice.nvim",
     event = {"VeryLazy", "CmdlineEnter"},
-
     opts = {
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -94,7 +93,6 @@ local lazy_plugins = {
       "rcarriga/nvim-notify",
     }
   },
-  ]]
   -- null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
