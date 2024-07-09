@@ -12,6 +12,7 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
+-- using cmp in the terminal
 local cmp = require("cmp")
 
 require("luasnip.loaders.from_vscode").lazy_load()

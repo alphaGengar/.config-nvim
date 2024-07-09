@@ -29,7 +29,6 @@ local lazy_plugins = {
       injector = {
         ["cpp"] = {
           before = { "#include <bits/stdc++.h>", "using namespace std;", "#define ll long long", "#define all(x) x.begin(), x.end()"},
-          after = "int main() {}",
         },
       }
     },
@@ -77,6 +76,8 @@ local lazy_plugins = {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
         },
+        hover = { enabled = false }, -- <-- HERE!
+        signature = { enabled = false }, -- <-- HERE!
       },
       -- you can enable a preset for easier configuration
       presets = {
