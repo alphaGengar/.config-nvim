@@ -2,6 +2,7 @@ local lazy_plugins = {
   -- leetcode
   {
     "kawre/leetcode.nvim",
+    lazy = false,
     cmd = "Leet",
     build = ":TSUpdate html",
     dependencies = {
