@@ -169,7 +169,7 @@ M.lspconfig = {
       "LSP implementation",
     },
 
-    ["<leader>ls"] = {
+    ["<leader>lh"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
@@ -490,15 +490,47 @@ M.CP = {
     -- copy file name
     ["<leader>cf"] = {":lua CopyCurrentFileName<CR>", "Copy File Name"},
 
-    -- switch tabprevious
-    ["<C-Right>"] = {":tabnext<CR>", "Next Tab"},
-    ["<C-Left>"] = {":tabprevious<CR>", "Previous Tab"},
-
     -- running files
+    --[[
     ["li"] = {":vs %:r.in<CR>", "Add Testcase File"},
     ["lc"] = {":vectical close<CR>", "Close Testcase File"},
     ["lr"] = {":w<CR>:make<CR>:!./%:r < %:r.in<CR>", "Run Testcase File"},
     ["lt"] = {":w<CR> :make<CR> :!time ./%:r < %:r.in <CR>", "Time Testcase File"},
+    ]]
+  }
+}
+
+M.leet = {
+  n = {
+    ["<leader>leet"] = { "<cmd>Leet<CR>", "Leet Dashboard" },
+    ["<leader>lq"] = { "<cmd>Leet exit<CR>", "Close Leet" },
+    ["<leader>lco"] = { "<cmd>Leet console<CR>", "Console" },
+    ["<leader>li"] = { "<cmd>Leet info<CR>", "Question Info" },
+    ["<leader>lt"] = { "<cmd>Leet tabs<CR>", "Question Tabs" },
+    ["<leader>ly"] = { "<cmd>Leet yank<CR>", "Yank Solution" },
+    ["<leader>lru"] = { "<cmd>Leet test<CR>", "Test Question" },
+    ["<leader>lsu"] = { "<cmd>Leet submit<CR>", "Submit Question" },
+
+    ["<leader>lrq"] = { "<cmd>Leet random<CR>", "Random Question" },
+    ["<leader>lre"] = { "<cmd>Leet random difficulty=easy<CR>", "Random Easy Question" },
+    ["<leader>lrm"] = { "<cmd>Leet random difficulty=medium<CR>", "Random Medium Question" },
+    ["<leader>lrh"] = { "<cmd>Leet random difficulty=hard<CR>", "Random Hard Question" },
+
+    ["<leader>ld"] = { "<cmd>Leet daily<CR>", "Daily Question" },
+    ["<leader>lp"] = { "<cmd>Leet list<CR>", "Problem List" },
+    ["<leader>lo"] = { "<cmd>Leet open<CR>", "Open in Browser" },
+    ["<leader>lx"] = { "<cmd>Leet reset<CR>", "Reset Question" },
+    ["<leader>ldesc"] = { "<cmd>Leet desc<CR>", "Toggle Description" },
+    ["<leader>lstat"] = { "<cmd>Leet desc stats<CR>", "Toggle Stats" },
+  }
+}
+
+M.celularautomation = {
+  n = {
+    ["<leader>fuckmylife"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "Make it Rain" },
+    ["<leader>gameoflife"] = { "<cmd>CellularAutomaton game_of_life<CR>", "Game of Life" },
+
+
   }
 }
 

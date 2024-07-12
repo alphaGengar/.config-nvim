@@ -100,7 +100,7 @@ local options = {
             else
                 fallback()
             end
-        end, { 
+        end, {
                 "i",
                 "s"
             }),

@@ -1,10 +1,9 @@
+--[[
 local options = {
   filters = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
     enable = true,
-    dotfiles = false,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom"},
     custom = function(path)
       if vim.endswith(path, ".testcases") then
         return true
@@ -23,7 +22,6 @@ local options = {
   sync_root_with_cwd = true,
   update_focused_file = {
     enable = true,
-    update_root = false,
     update_root = true,
   },
   view = {
@@ -87,5 +85,79 @@ local options = {
     },
   },
 }
+]]
 
-return options
+local opts = {
+  "nvim-tree/nvim-tree.lua",
+  filters = {
+    dotfiles = false,
+    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+    enable = true,
+    custom = function(path)
+      if vim.endswith(path, ".testcases") then
+        return true
+      end
+      if not string.match(path, "%.") then
+        return true
+      end
+      return false
+    end,
+  },
+
+  view = {
+    width = 39,
+  },
+  renderer = {
+    root_folder_label = false, -- hide root directory at the top
+    indent_markers = {
+      enable = true,           -- folder level guide
+      icons = {
+        corner = "└",
+        edge = "|",
+        item = "|",
+        bottom = "─",
+        none = " ",
+      },
+    },
+    icons = {
+      glyphs = {
+        default = "󰈚",
+        symlink = "",
+        folder = {
+          arrow_closed = "",
+          arrow_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+        },
+        git = {
+          unstaged = "",
+          staged = "",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+      padding = " ",
+    },
+  },
+  actions = {
+    open_file = {
+      quit_on_open = false,
+      window_picker = {
+        enable = true,
+      },
+    },
+  },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  },
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+}
+
+return opts
