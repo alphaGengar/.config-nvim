@@ -1,4 +1,25 @@
 local lazy_plugins = {
+  --zen
+  {
+    event = "VeryLazy",
+    "folke/zen-mode.nvim",
+    opts = {
+      plugins = {
+        tmux = { enabled = true },
+        alacritty = {
+          enabled = true,
+          font = "16", -- font size
+        },
+      },
+      on_open = function()
+        vim.cmd(":lua require('incline').disable()")
+        vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 })
+      end,
+      on_close = function ()
+        vim.cmd(":lua require('incline').enable()")
+      end,
+    },
+  },
   -- context
   {
     'SmiteshP/nvim-navic',
@@ -22,7 +43,7 @@ local lazy_plugins = {
         },
         window = {
           padding = 1,
-          margin = { horizontal = 2, vertical = 2 },
+          margin = { horizontal = 1, vertical = 1 },
           placement = {
             horizontal = "center",
             vertical = "top"
