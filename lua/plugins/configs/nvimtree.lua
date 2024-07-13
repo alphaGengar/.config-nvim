@@ -86,6 +86,8 @@ local options = {
   },
 }
 ]]
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 
 local opts = {
   "nvim-tree/nvim-tree.lua",
@@ -110,7 +112,7 @@ local opts = {
   renderer = {
     root_folder_label = false, -- hide root directory at the top
     indent_markers = {
-      enable = true,           -- folder level guide
+      enable = false,           -- folder level guide
       icons = {
         corner = "└",
         edge = "|",
@@ -146,7 +148,7 @@ local opts = {
   },
   actions = {
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       window_picker = {
         enable = true,
       },
