@@ -8,7 +8,7 @@ M.ui = {
 
   theme_toggle = { "gruvbox", "catppuccin" },
   theme = "gruvbox",
-  transparency = true,
+  transparency = false,
 
   cmp = {
     icons = true,

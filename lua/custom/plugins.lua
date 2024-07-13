@@ -111,7 +111,7 @@ local lazy_plugins = {
       },
       injector = {
         ["cpp"] = {
-          before = { "#include <bits/stdc++.h>", "using namespace std;", "#define ll long long", "#define all(x) x.begin(), x.end()" },
+          before = { "#include <bits/stdc++.h>", '#include "./ListNode.cpp"', "using namespace std;", "#define ll long long", "#define all(x) x.begin(), x.end()" },
         },
       }
     },
