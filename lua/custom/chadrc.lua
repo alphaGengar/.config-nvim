@@ -6,8 +6,8 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
 
-  theme_toggle = { "gruvbox", "catppuccin" },
-  theme = "gruvbox",
+  theme_toggle = { "gruvchad", "catppuccin" },
+  theme = "gruvchad",
   transparency = false,
 
   cmp = {
