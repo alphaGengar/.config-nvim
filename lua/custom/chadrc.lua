@@ -23,6 +23,7 @@ M.ui = {
 
   tabufline = {
     enabled = true,
+    lazyload = false,
     offsets = {
       filetype = "NvimTree",
       text = "File Explorer", -- title on top

@@ -23,7 +23,6 @@ M.blankline = {
 }
 
 M.luasnip = function(opts)
-
   require("luasnip").config.set_config(opts)
 
   -- vscode format
@@ -45,42 +44,50 @@ M.luasnip = function(opts)
   local rep = require("luasnip.extras").rep
   local fmt = require("luasnip.extras.fmt").fmt
 
+
   ls.add_snippets("cpp", {
     s(
       "frpn", -- Snippet trigger
-      fmt( -- Format the snippet
+      fmt(    -- Format the snippet
         [[
-#ifndef LOCAL 
+#ifndef LOCAL
     freopen("{}.in", "r", stdin);
     freopen("{}.out", "w", stdout);
 #endif
-            ]],
+      ]],
         {
-          i(1), -- Placeholder for input file name
+          i(1),   -- Placeholder for input file name
           rep(1), -- Repeat the placeholder for output file name
         }
       )
     ),
-  })
-  -- Define the "fastio" snippet
-  ls.add_snippets("cpp", {
     s(
       "fastio", -- Snippet trigger
-      fmt( -- Format the snippet
+      fmt(      -- Format the snippet
         [[
 ios_base::sync_with_stdio(false);
 cin.tie(NULL);
-            ]],
+      ]],
         {} -- No placeholders or transformations needed
       )
     ),
+    s(
+      "tcs", -- Snippet trigger
+      fmt(
+        [[
+  int t; cin >> t;
+  while(t--)
+      ]],
+        {}
+      )
+    )
   })
 
   vim.api.nvim_create_autocmd("InsertLeave", {
     callback = function()
       if
-        require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not require("luasnip").session.jump_active
+          require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+          and not require("luasnip").session.jump_active
       then
         require("luasnip").unlink_current()
       end

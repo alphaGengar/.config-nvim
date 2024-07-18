@@ -42,8 +42,8 @@ local lazy_plugins = {
           wintypes = "special"
         },
         window = {
-          padding = 4,
-          margin = { horizontal = 1, vertical = 3 },
+          padding = 2,
+          margin = { horizontal = 1, vertical = 2 },
           placement = {
             horizontal = "center",
             vertical = "top"

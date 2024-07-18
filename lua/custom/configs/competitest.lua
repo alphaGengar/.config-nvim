@@ -70,9 +70,9 @@ local opts = {
       },
     },
     split_ui = {
-      position = "bottom",
+      position = "right",
       relative_to_editor = true,
-      total_width = .35,
+      total_width = .40,
       vertical_layout = {
         { 1, "tc" },
         { 1, { { 1, "so" }, { 1, "eo" } } },
@@ -113,7 +113,7 @@ local opts = {
     multiple_testing = -1,
     maximum_time = 2000,
     output_compare_method = "squish",
-    view_output_diff = true,
+    view_output_diff = false,
     testcases_directory = ".",
     testcases_use_single_file = true,
     testcases_auto_detect_storage = true,
