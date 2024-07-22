@@ -1,4 +1,3 @@
---[[
 local options = {
   filters = {
     dotfiles = false,
@@ -19,46 +18,33 @@ local options = {
   hijack_netrw = true,
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
-  sync_root_with_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_root = true,
-  },
   view = {
     adaptive_size = false,
     side = "left",
-    width = 30,
+    width = 45,
     preserve_window_proportions = true,
   },
   git = {
-    enable = false,
+    enable = true,
     ignore = true,
   },
   filesystem_watchers = {
     enable = true,
   },
-  actions = {
-    open_file = {
-      resize_window = true,
-    },
-  },
   renderer = {
     root_folder_label = false,
-    highlight_git = false,
-    highlight_opened_files = "none",
-
     indent_markers = {
       enable = false,
+      icons = {
+        corner = "└",
+        edge = "|",
+        item = "|",
+        bottom = "─",
+        none = " ",
+      },
     },
 
     icons = {
-      show = {
-        file = true,
-        folder = true,
-        folder_arrow = true,
-        git = false,
-      },
-
       glyphs = {
         default = "󰈚",
         symlink = "",
@@ -82,10 +68,26 @@ local options = {
           ignored = "◌",
         },
       },
+      padding = " ",
     },
   },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      window_picker = {
+        enable = true,
+      },
+    },
+  },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  },
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
 }
-]]
+
+--[[
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -112,7 +114,7 @@ local opts = {
   renderer = {
     root_folder_label = false, -- hide root directory at the top
     indent_markers = {
-      enable = false,           -- folder level guide
+      enable = false,          -- folder level guide
       icons = {
         corner = "└",
         edge = "|",
@@ -161,5 +163,5 @@ local opts = {
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
 }
-
-return opts
+]]
+return options

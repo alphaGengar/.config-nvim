@@ -8,7 +8,7 @@ M.ui = {
 
   theme_toggle = { "gruvchad", "catppuccin" },
   theme = "gruvchad",
-  transparency = true,
+  transparency = false,
 
   cmp = {
     icons = true,
