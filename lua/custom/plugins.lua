@@ -142,10 +142,11 @@ local lazy_plugins = {
   },
   -- command line middle! + notify
   {
+    enabled = false,
     "rcarriga/nvim-notify",
     opts = {
       background_colour = "#000000",
-      render = "minimal",
+      render = "compact",
       stages = "fade",
       timeout = 2000,
     },
