@@ -76,11 +76,48 @@ cin.tie(NULL);
       fmt(
         [[
   int t; cin >> t;
-  while(t--)
+  while(t--){{
+    {}
+  }}
       ]],
+        {
+          i(1),
+        }
+      )
+    ),
+    s(
+      "vin",
+      fmt(
+        [[
+
+template <typename S>
+istream &operator>>(istream &is, vector<S> &vec) 
+{{
+  for (auto &element : vec) {{
+    is >> element;
+  }}
+  return is;
+}}
+        ]],
         {}
       )
-    )
+    ),
+    s(
+      "vout",
+      fmt(
+        [[
+template <typename S>
+ostream& operator<<(ostream& os, const vector<S>& vector)
+{{
+    for (auto element : vector) {{
+        os << element << " ";
+    }}
+    return os;
+}}
+        ]],
+        {}
+      )
+    ),
   })
 
   vim.api.nvim_create_autocmd("InsertLeave", {
