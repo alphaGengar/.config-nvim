@@ -22,11 +22,12 @@ local lazy_plugins = {
   },
   -- context
   {
+    event = "VeryLazy",
     'SmiteshP/nvim-navic',
   },
   -- file name
   {
-    lazy = false,
+    event = "VeryLazy",
     'b0o/incline.nvim',
     dependencies = "SmiteshP/nvim-navic",
     config = function()
@@ -119,7 +120,7 @@ local lazy_plugins = {
   -- Presence
   {
     "jiriks74/presence.nvim",
-    event = "UIEnter",
+    event = "VeryLazy",
   },
   --leap
   {
@@ -183,6 +184,7 @@ local lazy_plugins = {
   },
   -- null-ls
   {
+    event = "VeryLazy",
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
       return require "custom.configs.null-ls"
@@ -191,6 +193,7 @@ local lazy_plugins = {
 
   -- mason
   {
+    event = "VeryLazy",
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -203,6 +206,7 @@ local lazy_plugins = {
 
   -- Competitest (for C++)
   {
+    event = "VeryLazy",
     "xeluxee/competitest.nvim",
     requires = "MunifTanjim/nui.nvim",
     ft = 'cpp',
@@ -213,6 +217,7 @@ local lazy_plugins = {
   -- LSP
   {
     lazy = true,
+    event = "VeryLazy",
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"

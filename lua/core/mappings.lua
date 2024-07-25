@@ -17,7 +17,10 @@ M.general = {
   },
 
   n = {
-    -- dismoss notifications
+    -- cp command
+    ["<leader>ctg"] = {":CompetiTest receive testcases<Space><CR>", "Recieve Testcases"},
+
+    -- dismiss notifications
     ["<leader>dn"] = { ":lua require('notify').dismiss()<CR>", "Dismiss Notifications" },
 
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
@@ -485,7 +488,6 @@ M.CP = {
 
     ["<leader>ctc"] = {":CompetiTest receive contest<Space><CR>", "Recieve Contest"},
     ["<leader>ctp"] = {":CompetiTest receive problem<Space><CR>", "Recieve Problem"},
-    ["<leader>ctg"] = {":CompetiTest receive testcases<Space><CR>", "Recieve Testcases"},
 
     -- copy file name
     ["<leader>cf"] = {":lua CopyCurrentFileName<CR>", "Copy File Name"},
