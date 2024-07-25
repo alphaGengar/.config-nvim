@@ -19,9 +19,9 @@ local options = {
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     side = "left",
-    width = 45,
+    width = 35,
     preserve_window_proportions = true,
   },
   git = {
