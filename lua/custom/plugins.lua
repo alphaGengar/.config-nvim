@@ -20,7 +20,7 @@ local lazy_plugins = {
           padding = 3,
           margin = { horizontal = 1, vertical = 3 },
           placement = {
-            horizontal = "center",
+            horizontal = "right",
             vertical = "top"
           },
         },
