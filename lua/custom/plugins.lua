@@ -90,6 +90,7 @@ local lazy_plugins = {
   {
     "jiriks74/presence.nvim",
     event = "UIEnter",
+
   },
   --leap
   {

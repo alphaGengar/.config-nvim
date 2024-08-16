@@ -6,9 +6,9 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
 
-  theme_toggle = { "gruvchad", "catppuccin" },
+  theme_toggle = { "gruvchad", "gruvchad" },
   theme = "gruvchad",
-  transparency = true,
+  transparency = false,
 
   cmp = {
     icons = true,
