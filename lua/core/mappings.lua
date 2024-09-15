@@ -518,11 +518,4 @@ M.leet = {
   }
 }
 
-M.celularautomation = {
-  n = {
-    ["<leader>fuckmylife"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "Make it Rain" },
-    ["<leader>gameoflife"] = { "<cmd>CellularAutomaton game_of_life<CR>", "Game of Life" },
-  }
-}
-
 return M

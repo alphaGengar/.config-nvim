@@ -6,14 +6,13 @@ M.ui = {
   hl_override = {},
   changed_themes = {},
 
-  theme_toggle = { "gruvchad", "gruvchad" },
+  theme_toggle = { "gruvbox", "ayu_dark" },
   theme = "gruvchad",
   transparency = false,
 
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "flat_dark",     -- default/flat_light/flat_dark/atom/atom_colored
   },
 
   statusline = {
