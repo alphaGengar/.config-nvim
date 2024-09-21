@@ -6,7 +6,7 @@ local lazy_plugins = {
     build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",       -- required by telescope
+      "nvim-lua/plenary.nvim", -- required by telescope
       "MunifTanjim/nui.nvim",
 
       -- optional
@@ -32,11 +32,11 @@ local lazy_plugins = {
       }
     },
   },
-  -- Presence
   {
-    "jiriks74/presence.nvim",
-    event = "UIEnter",
-
+    'vyfor/cord.nvim',
+    build = './build || .\\build',
+    event = 'VeryLazy',
+    opts = {}, -- calls require('cord').setup()
   },
   --leap
   {
@@ -67,18 +67,18 @@ local lazy_plugins = {
         override = {
           ["vim.lsp.util.convert_input_to_mhellarkdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,           -- requires hrsh7th/nvim-cmphello bro
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmphello bro
         },
-        hover = { enabled = false },                        -- <-- HERE!
-        signature = { enabled = false },                    -- <-- HERE!
+        hover = { enabled = false },              -- <-- HERE!
+        signature = { enabled = false },          -- <-- HERE!
       },
       -- you can enable a preset for easier configuration
       presets = {
-        bottom_search = true,                 -- use a classic bottom cmdline for search
-        command_palette = true,               -- position the cmdline and popupmenu together
-        long_message_to_split = true,         -- long messages will be sent to a split
-        inc_rename = false,                   -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false,               -- add a border to hover docs and signature help
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false,       -- add a border to hover docs and signature help
       },
     },
     dependencies = {
