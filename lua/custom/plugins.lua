@@ -102,9 +102,15 @@ local lazy_plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- cpp
         "clangd",
         "clang-format",
         "codelldb",
+        -- python
+        "black",
+        "debugpy",
+        "ruff-lsp",
+        "pyright",
       }
     }
   },

@@ -2,13 +2,32 @@ local base = require("plugins.configs.lspconfig")
 local on_attach = base.on_attach
 local capabilities = base.capabilities
 
-local lspconfig = require("lspconfig")
+local config = require("lspconfig")
 
-lspconfig.clangd.setup {
+config.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
+  filetypes = {"cpp"},
+  capabilities = capabilities,
+}
+
+config.ruff_lsp.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  filetypes = {"python"},
+  capabilities = capabilities,
+}
+
+config.pyright.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  filetypes = {"python"},
   capabilities = capabilities,
 }
 
