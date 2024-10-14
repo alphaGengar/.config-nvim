@@ -8,6 +8,7 @@ local map = vim.keymap.set
 -- General mappings
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", "<leader>ra", ':lua require("nvchad.lsp.renamer")()<CR>', { desc = "LSP Rename" })
 
 -- CP (Competitive Programming) mappings
 map("n", "<leader>cta", ":CompetiTest add_testcase<Space><CR>", { desc = "Add Testcase" })

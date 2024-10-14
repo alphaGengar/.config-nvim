@@ -7,16 +7,17 @@ M = {
     hl_override = {},
     integrations = {},
     changed_themes = {},
-    transparency = false,
-    theme_toggle = { "gruvchad", "gruvchad" },
+    transparency = true,
+    theme_toggle = { "gruvchad", "everforest_light" },
   },
   ui = {
     cmp = {
       icons = true,
       lspkind_text = true,
-      style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+      style = "flat_default", -- default/flat_light/flat_dark/atom/atom_colored  
+      
       format_colors = {
-        tailwind = false,
+        tailwind = true,
       },
     },
 
@@ -108,6 +109,13 @@ M = {
   colorify = {
     enabled = true,
     mode = "virtual", -- fg, bg, virtual
+    virt_text = "󱓻 ",
+    highlight = { hex = true, lspvars = true },
+  },
+
+  colorify = {
+    enabled = true,
+    mode = "virtual",
     virt_text = "󱓻 ",
     highlight = { hex = true, lspvars = true },
   },

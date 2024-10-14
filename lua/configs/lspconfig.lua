@@ -1,4 +1,3 @@
-
 local lspconfig = require "lspconfig"
 
 -- Define on_attach function directly if needed
@@ -14,6 +13,7 @@ local servers = {
   "clangd",
   "ruff_lsp",
   "pyright",
+  "lua_ls"  -- Add lua-language-server to the list
 }
 
 for _, lsp in ipairs(servers) do
@@ -37,6 +37,28 @@ lspconfig.ruff_lsp.setup {
 
 lspconfig.pyright.setup {
   filetypes = {"python"},
+}
+
+-- Add specific configuration for Lua
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },  -- Recognize 'vim' as a global variable
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.stdpath('config') .. '/lua'] = true,
+        },
+      },
+      format = {
+        enable = true,  -- Enable formatting capabilities for Lua
+      },
+    },
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 -- using cmp in the terminal
@@ -66,4 +88,3 @@ cmp.setup.cmdline(":", {
       },
     }),
 })
-

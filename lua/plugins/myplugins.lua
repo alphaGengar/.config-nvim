@@ -69,8 +69,8 @@ local lazy_plugins = {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmphello bro
         },
-        hover = { enabled = false},              -- <-- HERE!
-        signature = { enabled = false},          -- <-- HERE!
+        hover = { enabled = false },              -- <-- HERE!
+        signature = { enabled = false },          -- <-- HERE!
       },
       -- you can enable a preset for easier configuration
       presets = {
@@ -85,7 +85,20 @@ local lazy_plugins = {
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-cmdline",
       "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
     }
+  },
+  {
+    "rcarriga/nvim-notify",
+    event = { "VeryLazy" },
+    opts = {
+
+    },
+    config = function(_, opts)
+      require('notify').setup(vim.tbl_extend('keep', {
+        background_colour = "#000000"
+      }, opts))
+    end
   },
   -- null-ls
   {
@@ -111,6 +124,9 @@ local lazy_plugins = {
         "debugpy",
         "ruff-lsp",
         "pyright",
+        -- lua
+        "lua-language-server", -- Add the Lua language server here
+        "stylua"               -- Optionally add a Lua formatter like "stylua"
       }
     },
     config = function(_, opts)
