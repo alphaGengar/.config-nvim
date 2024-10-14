@@ -7,7 +7,7 @@ M.ui = {
   changed_themes = {},
 
   theme_toggle = { "gruvbox", "ayu_dark" },
-  theme = "gruvchad",
+  theme = "gruvbox",
   transparency = false,
 
   cmp = {
@@ -16,7 +16,7 @@ M.ui = {
   },
 
   statusline = {
-    theme = "vscode_colored",
+    theme = "minimal",
     -- separator_style = "default",
   },
 
