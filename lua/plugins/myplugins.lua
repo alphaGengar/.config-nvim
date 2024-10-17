@@ -118,14 +118,12 @@ local lazy_plugins = {
         -- cpp
         "clangd",
         "clang-format",
-        "codelldb",
         -- python
         "black",
         "debugpy",
         "ruff-lsp",
         "pyright",
         -- lua
-        "lua-language-server", -- Add the Lua language server here
         "stylua"               -- Optionally add a Lua formatter like "stylua"
       }
     },

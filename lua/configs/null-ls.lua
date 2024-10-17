@@ -7,11 +7,9 @@ local opts = {
     null_ls.builtins.formatting.black,
   },
   on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
     if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({
-        group = augroup,
-        buffer = bufnr,
-      })
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,

@@ -5,6 +5,11 @@ local on_attach = function(client, bufnr)
   -- Your on_attach logic here
 end
 
+vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+  local lsp_client = vim.lsp.get_client_by_id(ctx.client_id)
+  -- Customize or suppress messages based on result and client.
+end
+
 -- Get capabilities from cmp_nvim_lsp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -13,7 +18,8 @@ local servers = {
   "clangd",
   "ruff_lsp",
   "pyright",
-  "lua_ls"  -- Add lua-language-server to the list
+  "lua_ls",  -- Add lua-language-server to the list
+  "jdtls"
 }
 
 for _, lsp in ipairs(servers) do
@@ -37,6 +43,10 @@ lspconfig.ruff_lsp.setup {
 
 lspconfig.pyright.setup {
   filetypes = {"python"},
+}
+
+lspconfig.jdtls.setup {
+  filetypes = {"java"}
 }
 
 -- Add specific configuration for Lua

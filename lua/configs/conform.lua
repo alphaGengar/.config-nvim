@@ -3,7 +3,6 @@ local options = {
     lua = { "stylua" },
     -- css = { "prettier" },
     -- html = { "prettier" },
-    
     -- Adding formatters for C++, Python, and Java
     cpp = { "clang-format" },
     c = { "clang-format" },  -- Also adding C since it often uses the same formatter as C++
