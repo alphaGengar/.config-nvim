@@ -20,12 +20,14 @@ M = {
       },
     },
 
-    telescope = { style = "borderless" }, -- borderless / bordered
+    telescope = { style = "bordered" }, -- borderless / bordered
 
     statusline = {
       theme = "default", -- default/vscode/vscode_colored/minimal
-      separator_style = "default",
-      order = nil,
+       -- default/round/block/arrow separators work only for default statusline theme
+       -- round and block will work for minimal theme only
+      separator_style = "round",
+      order = { "mode", "file",  "%=", "git", "lsp_msg", "diagnostics", "lsp"},
       modules = nil,
     },
 

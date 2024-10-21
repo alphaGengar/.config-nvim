@@ -27,15 +27,21 @@ local lazy_plugins = {
       },
       injector = {
         ["cpp"] = {
-          before = { "#include <bits/stdc++.h>", '#include "./ListNode.cpp"', "using namespace std;", "#define ll long long", "#define all(x) x.begin(), x.end()" },
+          before = {
+            "#include <bits/stdc++.h>",
+            '#include "./ListNode.cpp"',
+            "using namespace std;",
+            "#define ll long long",
+            "#define all(x) x.begin(), x.end()",
+          },
         },
-      }
+      },
     },
   },
   {
-    'vyfor/cord.nvim',
-    build = './build || .\\build',
-    event = 'VeryLazy',
+    "vyfor/cord.nvim",
+    build = "./build || .\\build",
+    event = "VeryLazy",
     opts = {}, -- calls require('cord').setup()
   },
   --leap
@@ -48,7 +54,7 @@ local lazy_plugins = {
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
     },
     config = function(_, opts)
-      local leap = require("leap")
+      local leap = require "leap"
       for k, v in pairs(opts) do
         leap.opts[k] = v
       end
@@ -86,19 +92,17 @@ local lazy_plugins = {
       "hrsh7th/cmp-cmdline",
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-    }
+    },
   },
   {
     "rcarriga/nvim-notify",
     event = { "VeryLazy" },
-    opts = {
-
-    },
+    opts = {},
     config = function(_, opts)
-      require('notify').setup(vim.tbl_extend('keep', {
-        background_colour = "#000000"
+      require("notify").setup(vim.tbl_extend("keep", {
+        background_colour = "#000000",
       }, opts))
-    end
+    end,
   },
   -- null-ls
   {
@@ -117,15 +121,14 @@ local lazy_plugins = {
       ensure_installed = {
         -- cpp
         "clangd",
-        "clang-format",
         -- python
         "black",
         "debugpy",
         "ruff-lsp",
         "pyright",
         -- lua
-        "stylua"               -- Optionally add a Lua formatter like "stylua"
-      }
+        "stylua", -- Optionally add a Lua formatter like "stylua"
+      },
     },
     config = function(_, opts)
       require("mason").setup(opts)
@@ -141,7 +144,7 @@ local lazy_plugins = {
     event = "VeryLazy",
     "xeluxee/competitest.nvim",
     requires = "MunifTanjim/nui.nvim",
-    ft = 'cpp',
+    ft = "cpp",
     opts = function()
       return require "configs.competitest"
     end,
@@ -153,6 +156,19 @@ local lazy_plugins = {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+    end,
+  },
+  -- nvim-navic
+  -- In lua/plugins/myplugins.lua
+  -- Other plugins...
+  {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig",
+    config = function()
+      require("nvim-navic").setup {
+        -- Configuration options for nvim-navic
+        -- e.g. highlight = true, separator = " -> "
+      }
     end,
   },
 }

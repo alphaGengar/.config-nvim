@@ -4,7 +4,7 @@ if not ok then
   return
 end
 local opts = {
-  competitest.setup({
+  competitest.setup {
     local_config_file_name = ".competitest.lua",
     floating_border = "rounded",
     floating_border_highlight = "FloatBorder",
@@ -72,7 +72,7 @@ local opts = {
     split_ui = {
       position = "right",
       relative_to_editor = true,
-      total_width = .40,
+      total_width = 0.40,
       vertical_layout = {
         { 1, "tc" },
         { 1, { { 1, "so" }, { 1, "eo" } } },
@@ -135,6 +135,6 @@ local opts = {
     open_received_problems = true,
     open_received_contests = true,
     replace_received_testcases = false,
-  })
+  },
 }
 return opts
