@@ -46,3 +46,7 @@ end, { desc = "Toggle transparency" })
 map("n", "<leader>fm", function()
   vim.lsp.buf.format { async = true }
 end, { desc = "LSP formatting" })
+
+-- yankbank
+map("n", "<leader>pp", "<cmd>:YankBank<CR>", { desc = "Yank Clipboard" })
+map("n", "<leader>pc", "<cmd>:YankBankClearDB<CR>", { desc = "Clear YankBank History" })

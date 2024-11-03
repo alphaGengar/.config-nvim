@@ -1,4 +1,31 @@
 local lazy_plugins = {
+  -- lualine
+  {
+    lazy = true,
+    event = "VeryLazy",
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+      require("configs.lualine")
+    end
+  },
+  {
+    'ptdewey/yankbank-nvim',
+    dependencies = 'kkharji/sqlite.lua',
+    lazy = false,
+    config = function()
+      require('yankbank').setup({
+        persist_type = 'sqlite',
+      })
+    end,
+  },
+
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    event = 'LspAttach',
+    opts = {},
+  },
+
   {
     "kawre/leetcode.nvim",
     lazy = true,
@@ -38,12 +65,14 @@ local lazy_plugins = {
       },
     },
   },
+
   {
     "vyfor/cord.nvim",
     build = "./build || .\\build",
     event = "VeryLazy",
     opts = {}, -- calls require('cord').setup()
   },
+
   --leap
   {
     "ggandor/leap.nvim",
@@ -63,6 +92,7 @@ local lazy_plugins = {
       vim.keymap.del({ "x", "o" }, "X")
     end,
   },
+
   -- command line middle! + notify
   {
     "folke/noice.nvim",
@@ -94,6 +124,7 @@ local lazy_plugins = {
       "rcarriga/nvim-notify",
     },
   },
+
   {
     "rcarriga/nvim-notify",
     event = { "VeryLazy" },
@@ -149,6 +180,7 @@ local lazy_plugins = {
       return require "configs.competitest"
     end,
   },
+
   -- LSP
   {
     lazy = true,
@@ -156,19 +188,6 @@ local lazy_plugins = {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
-    end,
-  },
-  -- nvim-navic
-  -- In lua/plugins/myplugins.lua
-  -- Other plugins...
-  {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig",
-    config = function()
-      require("nvim-navic").setup {
-        -- Configuration options for nvim-navic
-        -- e.g. highlight = true, separator = " -> "
-      }
     end,
   },
 }
