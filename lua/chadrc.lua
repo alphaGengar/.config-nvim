@@ -2,13 +2,13 @@ local M = {}
 
 M = {
   base46 = {
-    theme = "gruvbox",
+    theme = "ayu_dark",
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = true,
-    theme_toggle = { "solarized_dark", "gruvbox" },
+    theme_toggle = { "solarized_dark", "ayu_dark" },
   },
   ui = {
     cmp = {

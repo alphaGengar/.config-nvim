@@ -41,12 +41,11 @@ require('lualine').setup {
     lualine_a = { { 'mode', separator = { left = '' }, right_padding = 3 } },
     lualine_b = { 'filename', 'branch' },
     lualine_c = {
-      '%=', -- Center alignment
       {
         'diagnostics',
         sources = { 'nvim_lsp' },
         sections = { 'error', 'warn', 'info', 'hint' },
-        symbols = { error = ' ', warn = '  ', info = '  ', hint = '  ' },
+        symbols = { error = '  ', warn = '  ', info = '  ', hint = '  ' },
         colored = true,
         update_in_insert = false,
         always_visible = true,
