@@ -94,7 +94,7 @@ local function on_attach(client, bufnr)
   buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
   buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
   buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  buf_set_keymap("n", "<space>ra", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -143,7 +143,9 @@ local server_configs = {
     filetypes = { "cpp" },
     settings = {
       clangd = {
-        fallbackFlags = { "--style={BasedOnStyle: Google, IndentWidth: 4}" },
+        fallbackFlags = {
+          "--std=c++17",
+          "--style={BasedOnStyle: Google, IndentWidth: 4}" },
       },
     },
   },
@@ -253,11 +255,11 @@ cmp.setup({
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
+    { name = 'nvim_lsp', max_item_count = 5 },
+    { name = 'luasnip',  max_item_count = 5 },
+    { name = 'path',     max_item_count = 5 },
   }, {
-    { name = 'buffer' },
+    { name = 'buffer', max_item_count = 10 },
   }),
   formatting = {
     format = function(entry, vim_item)
