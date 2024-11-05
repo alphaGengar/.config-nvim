@@ -5,6 +5,7 @@ local opts = {
   sources = {
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.stylua,
   },
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false

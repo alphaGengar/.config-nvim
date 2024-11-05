@@ -11,7 +11,6 @@ end
 -- Organize mappings by category
 local M = {}
 
--- Core mappings (non-plugin)
 M.general = {
   {
     mode = "n",

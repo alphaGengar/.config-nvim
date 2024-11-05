@@ -10,8 +10,8 @@ local fmt = require("luasnip.extras.fmt").fmt
 -- Define C++ snippets
 ls.add_snippets("cpp", {
   s(
-    "frpn", -- Snippet trigger
-    fmt(    -- Format the snippet
+    "frpn",
+    fmt(
       [[
 #ifndef LOCAL
     freopen("{}.in", "r", stdin);
@@ -19,23 +19,23 @@ ls.add_snippets("cpp", {
 #endif
       ]],
       {
-        i(1),   -- Placeholder for input file name
-        rep(1), -- Repeat the placeholder for output file name
+        i(1),
+        rep(1),
       }
     )
   ),
   s(
-    "fastio", -- Snippet trigger
-    fmt(      -- Format the snippet
+    "fastio",
+    fmt(
       [[
 ios_base::sync_with_stdio(false);
 cin.tie(NULL);
       ]],
-      {} -- No placeholders or transformations needed
+      {}
     )
   ),
   s(
-    "tcs", -- Snippet trigger
+    "tcs",
     fmt(
       [[
   int t; cin >> t;
@@ -44,12 +44,12 @@ cin.tie(NULL);
   }}
       ]],
       {
-        i(1), -- Placeholder for the loop body
+        i(1),
       }
     )
   ),
   s(
-    "vin", -- Snippet trigger for vector input
+    "vin",
     fmt(
       [[
 template <typename S>
@@ -65,7 +65,7 @@ istream &operator>>(istream &is, vector<S> &vec)
     )
   ),
   s(
-    "vout", -- Snippet trigger for vector output
+    "vout",
     fmt(
       [[
 template <typename S>

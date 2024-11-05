@@ -143,11 +143,16 @@ end
 
 -- Server configurations
 local server_configs = {
+
   clangd = {
     filetypes = { "cpp" },
+    init_options = {
+      clangdFileStatus = true,
+      fallbackFlags = { "--std=c++17" },
+    },
     settings = {
       clangd = {
-        fallbackFlags = { "--std=c++17", "--style={BasedOnStyle: Google, IndentWidth: 4}" },
+        fallbackFlags = { "--std=c++17" },
       },
     },
   },
@@ -169,6 +174,28 @@ local server_configs = {
     },
   },
 }
+
+
+lspconfig.lua_ls.setup({
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr) -- Call the existing on_attach function with key mappings and other setup
+  end,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }, -- Recognize `vim` as a global variable
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+        },
+      },
+      format = { enable = true }, -- Enable formatting
+    },
+  },
+  capabilities = get_capabilities() -- Include the additional capabilities as well
+})
 
 -- Setup completion
 local function setup_completion()
@@ -288,4 +315,3 @@ end
 
 -- Start the configuration
 init()
-
