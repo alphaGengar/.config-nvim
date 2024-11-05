@@ -33,18 +33,18 @@ M = {
     },
 
     tabufline = {
-      enabled = false,
-      -- lazyload = true,
-      -- order = { "treeOffset", "buffers", "tabs", "btns" },
-      -- modules = nil,
-      -- offsets = {
-      --   {
-      --     filetype = "NvimTree",
-      --     text = "File Explorer",
-      --     highlight = "Directory",
-      --     separator = true,
-      --   },
-      -- },
+      enabled = true,
+      lazyload = true,
+      order = { "treeOffset", "buffers", "tabs", "btns" },
+      modules = nil,
+      offsets = {
+        {
+          filetype = "NvimTree",
+          text = "File Explorer",
+          highlight = "Directory",
+          separator = true,
+        },
+      },
     },
   },
 
