@@ -3,7 +3,7 @@ local lazy_plugins = {
   {
     'nvim-lualine/lualine.nvim',
     lazy = false,
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    -- dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require("configs.lualine")
     end
@@ -31,15 +31,18 @@ local lazy_plugins = {
     end
   },
 
+  {
+    'goolord/alpha-nvim',
+    event = "VimEnter",
+    config = function()
+        require("configs.alpha")
+    end
+  },
+
   -- Navigation
   {
     "ggandor/leap.nvim",
     enabled = true,
-    keys = {
-      { "s",  mode = { "n", "x", "o" }, desc = "Leap Forward to" },
-      { "S",  mode = { "n", "x", "o" }, desc = "Leap Backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
-    },
     opts = function()
       return require("configs.leap")
     end
@@ -48,19 +51,50 @@ local lazy_plugins = {
   -- LSP and Code Quality
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("configs.lspconfig")
     end,
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return require("configs.null-ls")
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/lua/lua_snippets" })
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
+  },
+
+  {
+    "rafamadriz/friendly-snippets",
+    lazy = true,
+  },
+
+  {
+    "saadparwaiz1/cmp_luasnip",
+    event = "InsertEnter",
+  },
+
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    event = "InsertEnter",
+  },
+
+  {
+    "hrsh7th/cmp-buffer",
+    event = "InsertEnter",
+  },
+
+  {
+    "hrsh7th/cmp-path",
+    event = "InsertEnter",
   },
 
   {
@@ -82,7 +116,8 @@ local lazy_plugins = {
   {
     'ptdewey/yankbank-nvim',
     dependencies = 'kkharji/sqlite.lua',
-    lazy = false,
+    lazy = true,
+    event = "VeryLazy",
     opts = function()
       return require("configs.yankbank")
     end

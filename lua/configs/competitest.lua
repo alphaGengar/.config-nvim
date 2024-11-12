@@ -96,7 +96,7 @@ local opts = {
     compile_directory = ".",
     compile_command = {
       cpp = {
-        exec = "g++-14",
+        exec = "g++-17",
         args = { "-std=c++17", "-Wall", "-DLOCAL", "$(FNAME)", "-o", "$(FNOEXT)" },
       },
       rust = { exec = "rustc", args = { "$(FNAME)" } },

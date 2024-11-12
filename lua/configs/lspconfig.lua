@@ -4,64 +4,57 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
--- Initialize snippets
-local function setup_snippets()
-  vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/lua_snippets"
-  require("luasnip.loaders.from_lua").load({ paths = vim.g.lua_snippets_path })
-  require("luasnip.loaders.from_vscode").lazy_load()
-end
-
 -- Notification setup
-local function setup_notifications()
-  local has_notify, notify = pcall(require, "notify")
-  if not has_notify then return nil end
-
-  return {
-    notify = notify,
-    opts = {
-      title = "LSP",
-      timeout = 1000,
-      render = "minimal",
-    }
-  }
-end
+-- local function setup_notifications()
+--   local has_notify, notify = pcall(require, "notify")
+--   if not has_notify then return nil end
+--
+--   return {
+--     notify = notify,
+--     opts = {
+--       title = "LSP",
+--       timeout = 1000,
+--       render = "minimal",
+--     }
+--   }
+-- end
 
 -- LSP Progress handler
-local function setup_progress_handler()
-  local notification = setup_notifications()
-  local progress_messages = {}
-
-  vim.lsp.handlers["$/progress"] = function(err, result, ctx)
-    if err or not result.token or not result.value then return end
-
-    local client = vim.lsp.get_client_by_id(ctx.client_id)
-    if not client then return end
-
-    local progress = progress_messages[result.token] or {}
-    progress_messages[result.token] = progress
-
-    -- Update progress data
-    progress.title = result.value.title or progress.title
-    progress.message = result.value.message or progress.message
-    progress.percentage = result.value.percentage or progress.percentage
-    progress.client = client.name
-
-    if not result.value.kind or not notification then return end
-
-    local msg
-    if result.value.kind == "begin" then
-      msg = string.format("%s: %s", progress.client, progress.title or "")
-      notification.notify(msg, "info", notification.opts)
-    elseif result.value.kind == "report" and progress.percentage and progress.percentage % 20 == 0 then
-      msg = string.format("%s: %s %.0f%%", progress.client, progress.title or "", progress.percentage)
-      notification.notify(msg, "info", notification.opts)
-    elseif result.value.kind == "end" then
-      msg = string.format("%s: %s complete", progress.client, progress.title or "")
-      notification.notify(msg, "success", notification.opts)
-      progress_messages[result.token] = nil
-    end
-  end
-end
+-- local function setup_progress_handler()
+--   local notification = setup_notifications()
+--   local progress_messages = {}
+--
+--   vim.lsp.handlers["$/progress"] = function(err, result, ctx)
+--     if err or not result.token or not result.value then return end
+--
+--     local client = vim.lsp.get_client_by_id(ctx.client_id)
+--     if not client then return end
+--
+--     local progress = progress_messages[result.token] or {}
+--     progress_messages[result.token] = progress
+--
+--     -- Update progress data
+--     progress.title = result.value.title or progress.title
+--     progress.message = result.value.message or progress.message
+--     progress.percentage = result.value.percentage or progress.percentage
+--     progress.client = client.name
+--
+--     if not result.value.kind or not notification then return end
+--
+--     local msg
+--     if result.value.kind == "begin" then
+--       msg = string.format("%s: %s", progress.client, progress.title or "")
+--       notification.notify(msg, "info", notification.opts)
+--     elseif result.value.kind == "report" and progress.percentage and progress.percentage % 20 == 0 then
+--       msg = string.format("%s: %s %.0f%%", progress.client, progress.title or "", progress.percentage)
+--       notification.notify(msg, "info", notification.opts)
+--     elseif result.value.kind == "end" then
+--       msg = string.format("%s: %s complete", progress.client, progress.title or "")
+--       notification.notify(msg, "success", notification.opts)
+--       progress_messages[result.token] = nil
+--     end
+--   end
+-- end
 
 -- LSP capabilities
 local function get_capabilities()
@@ -156,7 +149,7 @@ local server_configs = {
       },
     },
   },
-  ruff_lsp = { filetypes = { "python" } },
+  ruff = { filetypes = { "python" } },
   pyright = { filetypes = { "python" } },
   jdtls = { filetypes = { "java" } },
   lua_ls = {
@@ -178,12 +171,12 @@ local server_configs = {
 
 lspconfig.lua_ls.setup({
   on_attach = function(client, bufnr)
-    on_attach(client, bufnr) -- Call the existing on_attach function with key mappings and other setup
+    on_attach(client, bufnr)   -- Call the existing on_attach function with key mappings and other setup
   end,
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" }, -- Recognize `vim` as a global variable
+        globals = { "vim" },   -- Recognize `vim` as a global variable
       },
       workspace = {
         library = {
@@ -191,10 +184,10 @@ lspconfig.lua_ls.setup({
           [vim.fn.stdpath("config") .. "/lua"] = true,
         },
       },
-      format = { enable = true }, -- Enable formatting
+      format = { enable = true },   -- Enable formatting
     },
   },
-  capabilities = get_capabilities() -- Include the additional capabilities as well
+  capabilities = get_capabilities()   -- Include the additional capabilities as well
 })
 
 -- Setup completion
@@ -277,8 +270,7 @@ end
 
 -- Initialize everything
 local function init()
-  setup_snippets()
-  setup_progress_handler()
+  -- setup_progress_handler()
 
   -- Helper function for merging configs
   local function deep_merge(t1, t2)
@@ -293,7 +285,7 @@ local function init()
   end
 
   -- Setup LSP servers
-  local servers = { "clangd", "ruff_lsp", "pyright", "lua_ls", "jdtls" }
+  local servers = { "clangd", "ruff", "pyright", "lua_ls", "jdtls" }
   for _, server in ipairs(servers) do
     local config = {
       on_attach = function(client, bufnr)
@@ -313,5 +305,9 @@ local function init()
   setup_completion()
 end
 
--- Start the configuration
-init()
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    init()
+  end,
+  once = true,
+})

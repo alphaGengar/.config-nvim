@@ -2,19 +2,19 @@ local M = {}
 
 M = {
   base46 = {
-    theme = "ayu_dark",
+    theme = "gruvchad",
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = true,
-    theme_toggle = { "solarized_dark", "ayu_dark" },
+    theme_toggle = { "solarized_dark", "gruvchad" },
   },
   ui = {
     cmp = {
       icons = true,
       lspkind_text = true,
-      style = "flat_default", -- default/flat_light/flat_dark/atom/atom_colored  
+      style = "flat_default", -- default/flat_light/flat_dark/atom/atom_colored
       format_colors = {
         tailwind = true,
       },
@@ -25,8 +25,8 @@ M = {
     statusline = {
       enabled = false,
       theme = "default", -- default/vscode/vscode_colored/minimal
-       -- default/round/block/arrow separators work only for default statusline theme
-       -- round and block will work for minimal theme only
+      -- default/round/block/arrow separators work only for default statusline theme
+      -- round and block will work for minimal theme only
       -- separator_style = "round",
       -- order = { "mode", "file",  "%=", "git", "lsp_msg", "diagnostics", "lsp"},
       -- modules = nil,
@@ -49,7 +49,7 @@ M = {
   },
 
   nvdash = {
-    load_on_startup = true,
+    load_on_startup = false,
     header = {
       "                            ",
       "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
@@ -108,7 +108,19 @@ M = {
     theme = "grid", -- simple/grid
   },
 
-  mason = { pkgs = {} },
+  mason = {
+    pkgs = {
+      "black",
+      "clang-format",
+      "clangd",
+      "debugpy",
+      "lua-language-server",
+      "pyright",
+      "ruff",
+      "ruff-lsp",
+      "stylua",
+    }
+  },
 
   colorify = {
     enabled = true,
