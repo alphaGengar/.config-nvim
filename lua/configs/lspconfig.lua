@@ -88,7 +88,6 @@ local function on_attach(client, bufnr)
     ["<space>wl"] = "print(vim.inspect(vim.lsp.buf.list_workspace_folders()))",
     ["<space>D"] = "vim.lsp.buf.type_definition()",
     ["<space>ra"] = "vim.lsp.buf.rename()",
-    ["<space>ca"] = "vim.lsp.buf.code_action()",
     ["gr"] = "vim.lsp.buf.references()",
     ["<space>z"] = "vim.diagnostic.open_float()",
     ["[d"] = "vim.diagnostic.goto_prev()",

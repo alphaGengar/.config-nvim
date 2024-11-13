@@ -8,6 +8,8 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+vim.keymap.set({ "v", "n" }, "<leader>ca", require("actions-preview").code_actions)
+
 -- Organize mappings by category
 local M = {}
 
@@ -189,4 +191,3 @@ load_mappings()
 
 -- Export mappings table for potential external use
 return M
-

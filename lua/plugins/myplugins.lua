@@ -35,7 +35,7 @@ local lazy_plugins = {
     'goolord/alpha-nvim',
     event = "VimEnter",
     config = function()
-        require("configs.alpha")
+      require("configs.alpha")
     end
   },
 
@@ -50,8 +50,17 @@ local lazy_plugins = {
 
   -- LSP and Code Quality
   {
+    lazy = true,
+    event = "LspAttach",
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      require("configs.code_actions")
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    ft = { "lua", "cpp", "python" }, -- Load only on these file types
     config = function()
       require("configs.lspconfig")
     end,
