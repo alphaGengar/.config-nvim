@@ -2,11 +2,14 @@ local M = {
   ensure_installed = {
     -- cpp
     "clangd",
+    "clang-format",
+
     -- python
     "black",
     "debugpy",
     "ruff-lsp",
     "pyright",
+
     -- lua
     "lua_language_server",
   },
