@@ -3,7 +3,6 @@ local lazy_plugins = {
   {
     'nvim-lualine/lualine.nvim',
     lazy = false,
-    -- dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require("configs.lualine")
     end
@@ -60,7 +59,8 @@ local lazy_plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    ft = { "lua", "cpp", "python" }, -- Load only on these file types
+    event = "InsertEnter",
+    ft = { "lua", "cpp", "python" },
     config = function()
       require("configs.lspconfig")
     end,
@@ -69,6 +69,9 @@ local lazy_plugins = {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+    config = function()
+      require("configs.cmp")
+    end,
   },
 
   {
