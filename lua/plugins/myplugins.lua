@@ -60,7 +60,7 @@ local lazy_plugins = {
   {
     "neovim/nvim-lspconfig",
     event = "InsertEnter",
-    ft = { "lua", "cpp", "python" },
+    ft = { "lua", "cpp", "python", "zsh", "sh", "java" },
     config = function()
       require("configs.lspconfig")
     end,
@@ -109,11 +109,11 @@ local lazy_plugins = {
     event = "InsertEnter",
   },
 
-  {
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    event = 'LspAttach',
-    opts = {},
-  },
+  -- {
+  --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+  --   event = 'LspAttach',
+  --   opts = {},
+  -- },
 
   -- Package Management
   {

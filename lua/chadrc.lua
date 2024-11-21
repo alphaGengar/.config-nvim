@@ -119,6 +119,7 @@ M = {
       "ruff",
       "ruff-lsp",
       "stylua",
+      "bash-language-server",
     }
   },
 

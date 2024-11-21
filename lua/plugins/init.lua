@@ -20,6 +20,7 @@ return {
         "cpp",
         "java",
         "python",
+        "bash"
       },
     },
   },

@@ -88,6 +88,11 @@ local server_configs = {
       fallbackFlags = { "--std=c++17" },
     },
   },
+
+  bashls = {
+    filetypes = { "sh", "bash", "zsh" }
+  },
+
   ruff = { filetypes = { "python" } },
   pyright = { filetypes = { "python" } },
   jdtls = { filetypes = { "java" } },
@@ -108,7 +113,7 @@ local server_configs = {
 }
 
 -- Setup for LSP servers
-for _, server in ipairs({ "clangd", "ruff", "pyright", "lua_ls", "jdtls" }) do
+for _, server in ipairs({ "clangd", "ruff", "pyright", "lua_ls", "jdtls", "bashls" }) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = get_capabilities(),

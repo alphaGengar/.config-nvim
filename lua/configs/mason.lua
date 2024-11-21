@@ -12,6 +12,9 @@ local M = {
 
     -- lua
     "lua_language_server",
+
+    -- bash
+    "bash-language-server",
   },
 }
 

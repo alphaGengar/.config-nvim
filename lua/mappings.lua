@@ -33,7 +33,7 @@ M.lsp = {
     end,
     { desc = "LSP formatting" },
   },
-  { "n", "<leader>ca", ':lua require("actions-preview").code_actions', { desc = "LSP Code Actions" } },
+  { "n", "<leader>ca", ':lua require("actions-preview").code_actions()<CR>', { desc = "LSP Code Actions" } },
 }
 
 -- Competitive Programming mappings (CompetiTest plugin)
