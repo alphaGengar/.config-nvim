@@ -163,11 +163,16 @@ local lazy_plugins = {
   },
 
   -- Misc
+  {
+    "vyfor/cord.nvim",
+    build = "./build || .\\build",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- {
-  --   "vyfor/cord.nvim",
-  --   build = "./build || .\\build",
-  --   event = "VeryLazy",
-  --   opts = {},
+  --   "github/copilot.vim",
+  --   lazy = false,
   -- },
 }
 
