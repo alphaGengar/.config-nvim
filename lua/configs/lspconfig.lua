@@ -85,7 +85,19 @@ local server_configs = {
     filetypes = { "cpp" },
     init_options = {
       clangdFileStatus = true,
-      fallbackFlags = { "--std=c++17" },
+      fallbackFlags = {
+        "-std=c++17",
+        "-I/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14",
+        "-I/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14/aarch64-apple-darwin23",
+        "-I/opt/homebrew/Cellar/gcc/14.2.0_1/include/c++/14/backward",
+        "-I/opt/homebrew/Cellar/gcc/14.2.0_1/include",
+        "-I/opt/homebrew/Cellar/gcc/14.2.0_1/include-fixed",
+        "-I/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include",
+        "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
+        "-I/Library/Developer/CommandLineTools/usr/include",
+        "-I/usr/local/include",
+        "-I/usr/include",
+      },
     },
   },
 
