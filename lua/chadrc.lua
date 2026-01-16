@@ -40,7 +40,7 @@ M = {
       offsets = {
         {
           filetype = "NvimTree",
-          text = "File Explorer",
+         text = "File Explorer",
           highlight = "Directory",
           separator = true,
         },

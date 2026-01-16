@@ -57,11 +57,25 @@ local function on_attach(client, bufnr)
   end
 
   -- Diagnostic signs
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-  end
+
+  vim.diagnostic.config({
+  signs = {
+    severity = {
+      min = vim.diagnostic.severity.HINT,
+      max = vim.diagnostic.severity.ERROR,
+    },
+    values = {
+      Error = " ",
+      Warn  = " ",
+      Hint  = " ",
+      Info  = " ",
+    },
+  },
+  virtual_text = true,
+  underline = true,
+  update_in_insert = false,
+  float = { border = "rounded" },
+})
 
   -- Diagnostic popup
   vim.api.nvim_create_autocmd("CursorHold", {
@@ -102,6 +116,7 @@ local server_configs = {
   },
 
   bashls = {
+
     filetypes = { "sh", "bash", "zsh" }
   },
 
@@ -122,10 +137,31 @@ local server_configs = {
       },
     },
   },
+
+  html = {
+    filetypes = { "html" },
+  },
+  cssls = {
+    filetypes = { "css", "scss", "less" },
+  },
+  ts_ls = {
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  },
+  emmet_ls = {
+    filetypes = {
+      "html", "css", "scss", "javascriptreact", "typescriptreact"
+    },
+    init_options = {
+      html = { options = { ["bem.enabled"] = true } },
+    },
+  },
+  jsonls = {
+    filetypes = { "json", "jsonc" },
+  },
 }
 
 -- Setup for LSP servers
-for _, server in ipairs({ "clangd", "ruff", "pyright", "lua_ls", "jdtls", "bashls" }) do
+for _, server in ipairs({ "clangd", "ruff", "pyright", "lua_ls", "jdtls", "bashls", "html", "cssls", "ts_ls", "emmet_ls", "jsonls" }) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = get_capabilities(),

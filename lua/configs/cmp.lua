@@ -54,7 +54,7 @@ local cmp_config = {
       return vim_item
     end
   },
-  experimental = { ghost_text = true },
+  experimental = { ghost_text = false },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),

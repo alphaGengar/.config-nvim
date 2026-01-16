@@ -15,6 +15,14 @@ local M = {
 
     -- bash
     "bash-language-server",
+
+    -- web dev
+    "html-lsp",
+    "css-lsp",
+    "typescript-language-server",
+    "emmet-ls",
+    "json-lsp",
+
   },
 }
 

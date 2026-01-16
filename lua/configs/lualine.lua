@@ -15,23 +15,27 @@ local colors = {
   comp_sep_bg = '#000000', -- Separator background
 }
 
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
+
 local bubbles_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white },
+    b = { fg = colors.white, bg = "none" },
+    c = { fg = colors.white, bg = "none" },
   },
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+  insert = { a = { fg = colors.black, bg = colors.blue }, b = { fg = colors.white, bg = "none" }, c = { fg = colors.white, bg = "none" } },
+  visual = { a = { fg = colors.black, bg = colors.cyan }, b = { fg = colors.white, bg = "none" }, c = { fg = colors.white, bg = "none" } },
+  replace = { a = { fg = colors.black, bg = colors.red }, b = { fg = colors.white, bg = "none" }, c = { fg = colors.white, bg = "none" } },
   inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.white },
+    a = { fg = colors.white, bg = "none" },
+    b = { fg = colors.white, bg = "none" },
+    c = { fg = colors.white, bg = "none" },
   },
 }
-
-
 -- Define custom highlight groups for the component with a transparent background
 vim.api.nvim_set_hl(0, 'CompetitestBackground', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'CompetitestRightSeparator', { fg = colors.comp_bg, bg = colors.comp_sep_bg })
